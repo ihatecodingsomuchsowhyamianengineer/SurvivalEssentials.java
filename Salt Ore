@@ -1,0 +1,17 @@
+//SurvivalEssentials.java
+
+import static com.novaventure.survivalessentials.NovasuesConfiguredFeatures.ORE_SALT_OVERWORLD;
+
+//onInitialize section
+        RegistryKey<ConfiguredFeature<?, ?>> oreSaltOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(MOD_ID, "ore_salt_overworld"));
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreSaltOverworld);
+
+//NovesuesConfiguredFeatures.java
+
+//public class NovesuesConfiguredFeatures section
+    public static final ConfiguredFeature<?, ?> ORE_SALT_OVERWORLD = register("novesues:ore_salt_overworld", Feature.ORE
+            .configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, SALT_ORE.getDefaultState(),
+                    9))
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0,0, 62))
+                    .spreadHorizontally()
+                    .repeat(5)));
